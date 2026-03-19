@@ -1,4 +1,6 @@
-import json, requests 
+import json
+import requests 
+
 
 def city_weather():
     city_name = 'Paris'
@@ -6,6 +8,7 @@ def city_weather():
     response = requests.post(f'https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={key}')
     result = json.loads(response.text)
     print(f"Погода в городе {city_name}:\nТемпература: {result['main']['temp']-273:.1f}\nВлажность: {result['main']['humidity']}\nДавление: {result['main']['pressure']}")
+
 
 def iss_info():
     iss = requests.get("http://api.open-notify.org/iss-now.json").json()
